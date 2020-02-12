@@ -41,3 +41,12 @@ SHOW GRANTS FOR 'flywayuser'@'localhost';
   ```
   gradle flywayClean
   ```
+
+## Specify an environment identifier
+- For Dev
+  ```
+  gradle flywayInfo -Penv=dev
+  ```
+
+## Connection information
+`./gradle.properties`
