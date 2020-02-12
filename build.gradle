@@ -24,7 +24,12 @@ repositories {
 }
 
 flyway {
-    url = 'jdbc:mysql://localhost:3306/localdb?&allowPublicKeyRetrieval=true&useSSL=false'
-    user = 'flywayuser'
-    password = 'flywaypass'
+    url = getProperty("${profile}.flyway.url") + "?&allowPublicKeyRetrieval=true&useSSL=false"
+    user = getProperty("${profile}.flyway.user")
+    password = getProperty("${profile}.flyway.password")
+}
+
+def getProfile() {
+    def profile = project.properties['env'] == null ? 'local' : project.properties['env']
+    return profile
 }
